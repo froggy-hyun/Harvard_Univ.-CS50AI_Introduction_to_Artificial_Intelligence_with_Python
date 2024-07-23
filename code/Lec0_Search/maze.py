@@ -1,23 +1,26 @@
+# Original sources by Harvard univ.
+# I wrote some comments while studying 
+
 import sys
 
 class Node():
     def __init__(self, state, parent, action):
         self.state = state
-        self.parent = parent
+        self.parent = parent # the state before the state
         self.action = action
 
 
-class StackFrontier():
+class StackFrontier(): #Last In, First Out
     def __init__(self):
-        self.frontier = []
+        self.frontier = [] # initially frontier is represented by the empty list.
 
     def add(self, node):
-        self.frontier.append(node)
+        self.frontier.append(node) # add something to the frontier by appending it to the end of the list.
 
     def contains_state(self, state):
         return any(node.state == state for node in self.frontier)
 
-    def empty(self):
+    def empty(self): # check if the frontier is empty
         return len(self.frontier) == 0
 
     def remove(self):
@@ -25,7 +28,7 @@ class StackFrontier():
             raise Exception("empty frontier")
         else:
             node = self.frontier[-1]
-            self.frontier = self.frontier[:-1]
+            self.frontier = self.frontier[:-1] # remove last item
             return node
 
 
@@ -36,7 +39,7 @@ class QueueFrontier(StackFrontier):
             raise Exception("empty frontier")
         else:
             node = self.frontier[0]
-            self.frontier = self.frontier[1:]
+            self.frontier = self.frontier[1:] # remove first item
             return node
 
 class Maze():
@@ -124,7 +127,7 @@ class Maze():
 
         # Initialize frontier to just the starting position
         start = Node(state=self.start, parent=None, action=None)
-        frontier = StackFrontier()
+        frontier = StackFrontier() # StackFrontier():DFS, QueueFrontier():BFS
         frontier.add(start)
 
         # Initialize an empty explored set
@@ -145,6 +148,8 @@ class Maze():
             if node.state == self.goal:
                 actions = []
                 cells = []
+                
+                # Follow parent nodes to find solution
                 while node.parent is not None:
                     actions.append(node.action)
                     cells.append(node.state)
