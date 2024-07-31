@@ -35,18 +35,19 @@ knowledge = And(
     Or(knife, revolver, wrench)
 )
 
-# Initial cards
+# Initial cards - Suppose I have three cards (mustard, kitchen, revolver)
 knowledge.add(And(
     Not(mustard), Not(kitchen), Not(revolver)
 ))
 
-# Unknown card
+# Unknown card - Suppose someone guessed 'Miss Scarlet in the library with the wrench' and one of those three cards was revealed. 
 knowledge.add(Or(
     Not(scarlet), Not(library), Not(wrench)
 ))
 
-# Known cards
+# Known cards - Suppose someone shows me the Professor Plum card and ballroom card.
 knowledge.add(Not(plum))
 knowledge.add(Not(ballroom))
 
 check_knowledge(knowledge)
+# print(knowledge.formula())
