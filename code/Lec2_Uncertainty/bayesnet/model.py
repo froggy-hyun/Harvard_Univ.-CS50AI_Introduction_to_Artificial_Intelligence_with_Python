@@ -46,7 +46,7 @@ model = BayesianNetwork()
 model.add_states(rain, maintenance, train, appointment)
 
 # Add edges connecting nodes
-model.add_edge(rain, maintenance)
+model.add_edge(rain, maintenance) # rain influences track maintenance...
 model.add_edge(rain, train)
 model.add_edge(maintenance, train)
 model.add_edge(train, appointment)
