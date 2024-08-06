@@ -32,7 +32,7 @@ def backtrack(assignment):
         new_assignment[var] = value
         if consistent(new_assignment):
             result = backtrack(new_assignment)
-            if result is not None:
+            if result is not None: # meaning it wasn't a failure
                 return result
     return None
 

@@ -1,4 +1,4 @@
-from constraint import *
+from constraint import * # example of using python constraint library
 
 problem = Problem()
 

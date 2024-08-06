@@ -1,4 +1,4 @@
-import scipy.optimize
+import scipy.optimize # scipy is a library for a lot of science-related functions
 
 # Objective Function: 50x_1 + 80x_2
 # Constraint 1: 5x_1 + 2x_2 <= 20
