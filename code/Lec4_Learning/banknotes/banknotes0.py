@@ -7,8 +7,8 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 
 # model = Perceptron()
-# model = svm.SVC()
-# model = KNeighborsClassifier(n_neighbors=1)
+# model = svm.SVC() # Support Vector Classifier from Support Vector Machine
+# model = KNeighborsClassifier(n_neighbors=1) # takes parameter n_neighbors for how many neighbors want to look at.
 model = GaussianNB()
 
 # Read data in from file

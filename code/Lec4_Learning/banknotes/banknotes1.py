@@ -24,7 +24,7 @@ with open("banknotes.csv") as f:
             "label": "Authentic" if row[4] == "0" else "Counterfeit"
         })
 
-# Separate data into training and testing groups
+# Separate data into training and testing groups (simplified)
 evidence = [row["evidence"] for row in data]
 labels = [row["label"] for row in data]
 
